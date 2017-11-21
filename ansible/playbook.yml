@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+    - vars/globals.yml
+    - vars/locals.yml
+  roles:
+    - server
+    - java
+    - jenkins
+
+

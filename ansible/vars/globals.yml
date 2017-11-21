@@ -1,0 +1,12 @@
+---
+# Services configurations
+server:
+  user: vagrant
+  packages: [vim, curl, git, build-essential, libssl-dev, zip, unzip, python-pip]
+  timezone: UTC
+  locale: en_US.UTF-8
+
+
+
+
+
