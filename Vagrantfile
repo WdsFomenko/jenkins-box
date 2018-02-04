@@ -2,8 +2,8 @@
 # vi: set ft=ruby :
 
 # The host name (you should also change it in the ansible/vars/globals.yml)
-HOSTNAME = 'jenkins.dev'
-ALIASES = %w(www.jenkins.dev)
+HOSTNAME = 'jenkins.local'
+ALIASES = %w(www.jenkins.local)
 
 # If you want to use 'rsync' synchronization on Linux systems
 # Ubuntu: apt-get -y install rsync

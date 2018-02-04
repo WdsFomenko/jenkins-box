@@ -1,9 +1,10 @@
 ---
+
 - name: Add key into repo
-  shell: wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | apt-key add -
+  shell: wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
 
 - name: Insert address of repo into source.list
-  shell: echo deb http://pkg.jenkins.io/debian-stable binary/ | tee /etc/apt/sources.list.d/jenkins.list
+  shell: echo deb https://pkg.jenkins.io/debian-stable binary/ | tee /etc/apt/sources.list.d/jenkins.list
 
 - name: Update apt
   apt: update_cache=yes
@@ -13,4 +14,9 @@
 
 - name: Check jenkins status
   shell: systemctl status jenkins
-  notify: start jenkins
+  register: jenkins_status
+  ignore_errors: True
+
+- name: Start jenkins
+  when: jenkins_status|success
+  shell: systemctl start jenkins
